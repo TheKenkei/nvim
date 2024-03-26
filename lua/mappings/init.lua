@@ -6,4 +6,5 @@ map("i", "jj", "<ESC>")
 require "mappings.buffers"
 require "mappings.git"
 require "mappings.lsp"
+require "mappings.nvim"
 require "mappings.sections"
