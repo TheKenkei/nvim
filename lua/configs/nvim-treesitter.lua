@@ -6,9 +6,9 @@ local options = {
     "html",
     "css",
     "scss",
-    -- "typyscript",
-    -- "javascript",
-    -- "php",
+    "typescript",
+    "javascript",
+    "php",
   },
 }
 return options
