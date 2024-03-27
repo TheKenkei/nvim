@@ -21,7 +21,9 @@ require("conform").setup {
 local options = {
   formatters_by_ft = {
     typescript = { "prettierd" },
+    typescriptreact = { "prettierd" },
     javascript = { "prettierd" },
+    javascriptreact = { "prettierd" },
 
     html = { "prettierd" },
     css = { "prettierd" },
