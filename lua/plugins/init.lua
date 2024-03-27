@@ -27,4 +27,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = require "configs.nvim-treesitter",
   },
+  {
+    "Exafunction/codeium.vim",
+    lazy = false,
+  },
 }
