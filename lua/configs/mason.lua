@@ -1,30 +1,31 @@
 local options = {
   ensure_installed = {
-    -- FRONT
-    "angular-language-server", --ANGULAR
-    "typescript-language-server", --TYPESCRIPT
-    "tailwindcss-language-server", --TAILWINDCSS
-    "css-lsp", --CSS
-    "html-lsp", --HTML
-    "eslint_d", --ESLINT
-    "prettierd", --PRETTIER
+    -- Frontend
+    "angular-language-server", -- Angular Language Server
+    "typescript-language-server", -- TypeScript Language Server
+    "tailwindcss-language-server", -- Tailwind CSS Language Server
+    "css-lsp", -- CSS Language Server
+    "html-lsp", -- HTML Language Server
+    "eslint_d", -- ESLint
+    "prettierd", -- Prettier
 
-    --BACK
-    "phpactor", --PHP
-    "intelephense", --PHP
-    "easy-coding-standard", -- PHP FORMATTER
-    "xmlformatter", -- XML FORMATTER
+    -- Backend
+    "phpactor", -- PHP Actor (PHP Language Server)
+    "intelephense", -- Intelephense (PHP Language Server)
+    "easy-coding-standard", -- Easy Coding Standard (PHP Formatter)
+    "xmlformatter", -- XML Formatter
 
-    --DOCKER
-    "docker-compose-language-service", --DOCKER
-    "dockerfile-language-server", --DOCKER
+    -- Docker
+    "docker-compose-language-service", -- Docker Compose Language Service
+    "dockerfile-language-server", -- Dockerfile Language Server
 
-    --NVIM
-    "lua-language-server", -- LUA
-    "stylua", --LUA FORMATTER
+    -- Neovim
+    "lua-language-server", -- Lua Language Server
+    "stylua", -- Stylua (Lua Formatter)
 
-    --OTHER
-    "shfmt", -- SHELL
+    -- Other
+    "shfmt", -- Shell Formatter
   },
 }
+
 return options

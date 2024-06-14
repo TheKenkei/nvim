@@ -1,11 +1,13 @@
-require "nvchad.mappings"
-local map = vim.keymap.set
+require "nvchad.mappings" -- Подключение основного файла с настройками клавиатурных сокращений из nvchad
 
--- require "mappings.init"
-map("i", "jj", "<ESC>")
-require "mappings.buffers"
-require "mappings.git"
-require "mappings.lsp"
-require "mappings.nvim"
-require "mappings.sections"
-require "mappings.terminal"
+local map = vim.keymap.set -- Импорт функции установки клавиатурных сокращений из библиотеки vim.keymap
+
+map("i", "jj", "<ESC>") -- Вставка "jj" будет заменяться на клавишу Escape ("<ESC>")
+
+-- Подключение настроек для различных модулей с клавиатурными сокращениями
+require "mappings.buffers" -- Настройки для работы с буферами
+require "mappings.git" -- Настройки для работы с Git
+require "mappings.lsp" -- Настройки для Language Server Protocol (LSP)
+require "mappings.nvim" -- Настройки для Neovim
+require "mappings.sections" -- Настройки для разделов
+require "mappings.terminal" -- Настройки для терминала
