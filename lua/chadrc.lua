@@ -7,7 +7,7 @@ local M = {}
 -- Настройки пользовательского интерфейса
 M.ui = {
   theme = "tokyodark", -- Тема оформления
-  transparency = false, -- Прозрачность
+  transparency = true, -- Прозрачность
 
   statusline = {
     theme = "vscode_colored", -- Тема статусной строки

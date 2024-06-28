@@ -1,6 +1,6 @@
 local options = {
   filters = {
-    dotfiles = false, -- Исключить точные файлы (начинающиеся с точки)
+    dotfiles = true, -- Исключить точные файлы (начинающиеся с точки)
     custom = { ".conform*" }, -- Пользовательские фильтры файлов (например, файлы, начинающиеся с ".conform")
     exclude = { vim.fn.stdpath "config" .. "/lua/custom", "conform.lua" }, -- Исключить указанные файлы или директории
   },
@@ -23,7 +23,7 @@ local options = {
   },
   git = {
     enable = true, -- Включить интеграцию с Git
-    ignore = false, -- Не игнорировать файлы Git
+    ignore = true, -- Не игнорировать файлы Git
   },
   filesystem_watchers = {
     enable = true, -- Включить отслеживание файловой системы
