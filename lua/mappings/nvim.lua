@@ -23,3 +23,5 @@ map("n", "<c-j>", "<cmd>:TmuxNavigateDown<cr>", { desc = "Tmux Down" })
 
 -- Установка клавиатурного сокращения для выполнения замены во всем файле
 map("n", "<leader>df", "<cmd>:%s//<cr>", { desc = "Delete find word" })
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")

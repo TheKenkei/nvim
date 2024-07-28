@@ -41,6 +41,7 @@ local servers = {
   "clangd",
   "intelephense",
   "phpactor",
+  "emmet_ls",
 }
 
 for _, server in ipairs(servers) do

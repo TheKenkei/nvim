@@ -6,7 +6,7 @@ local M = {}
 
 -- Настройки пользовательского интерфейса
 M.ui = {
-  theme = "tokyodark", -- Тема оформления
+  theme = "onedark", -- Тема оформления
   transparency = true, -- Прозрачность
 
   statusline = {
