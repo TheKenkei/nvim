@@ -61,7 +61,7 @@ local angular_cmd = { "ngserver", "--stdio", "--tsProbeLocations", install_path,
 lspconfig.angularls.setup {
   on_attach = on_attach, -- Функция для подключения к Angular Language Server
   cmd = angular_cmd, -- Команда для запуска Angular Language Server
-  root_dir = util.root_pattern("angular.json", "project.json"), -- Корневая директория проекта
+  root_dir = util.root_pattern "package.json", -- Корневая директория проекта
   on_new_config = function(new_config, new_root_dir)
     new_config.cmd = angular_cmd -- Обновление конфигурации команды при изменении
   end,
