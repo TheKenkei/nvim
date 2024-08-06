@@ -30,7 +30,7 @@ M.mason = {
     "typescript-language-server", -- TypeScript Language Server
     "deno", -- Deno Language Server
     "prettier", -- Prettier
-    "eslint_d", -- ESLint для JavaScript и TypeScript
+    "eslint-lsp", -- ESLint для JavaScript и TypeScript
     "clangd", -- Clangd для языка C и C++
     "clang-format", -- Clang-Format для форматирования кода на C и C++
     "node-debug2-adapter", -- Adapter для отладки Node.js

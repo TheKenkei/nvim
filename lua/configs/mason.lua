@@ -6,7 +6,7 @@ local options = {
     "tailwindcss-language-server", -- Tailwind CSS Language Server
     "css-lsp", -- CSS Language Server
     "html-lsp", -- HTML Language Server
-    "eslint_d", -- ESLint
+    "eslint-lsp", -- ESLint
     "prettierd", -- Prettier
 
     -- Backend

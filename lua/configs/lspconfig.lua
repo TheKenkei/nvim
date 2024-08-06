@@ -67,3 +67,14 @@ lspconfig.angularls.setup {
     new_config.cmd = angular_cmd -- Обновление конфигурации команды при изменении
   end,
 }
+lspconfig.eslint.setup {
+  on_new_config = function(new_config, new_root_dir)
+    new_config.filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" }
+  end,
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+}

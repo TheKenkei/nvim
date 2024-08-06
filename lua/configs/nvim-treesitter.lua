@@ -9,6 +9,9 @@ local options = {
     "scss", -- Поддержка для SCSS
     "typescript", -- Поддержка для TypeScript
     "javascript", -- Поддержка для JavaScript
+    "tsx", -- Поддержка для TSX (TypeScript JSX)
+    "c", -- Поддержка для языка C
+    "c_sharp", -- Поддержка для C#
     "php", -- Поддержка для PHP
     "markdown", -- Поддержка для Markdown
     "markdown_inline", -- Поддержка для встроенного Markdown

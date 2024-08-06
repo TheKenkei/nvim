@@ -49,6 +49,9 @@ return {
   {
     "mfussenegger/nvim-lint",
     event = "VeryLazy", -- Очень ленивая загрузка
+    config = function()
+      require "configs.lint"
+    end,
   },
   {
     "windwp/nvim-ts-autotag",
