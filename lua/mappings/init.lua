@@ -27,7 +27,7 @@ map("n", "<leader>bC", function()
   require("utils.buffers").close_all()
 end, { desc = "Close all buffers" }) -- Настройка для <leader>bC в нормальном режиме, вызывает функцию для закрытия всех буферов, включая текущий, с описанием "Close all buffers"
 
-map("n", "<leader>gg", function()
+map("n", "<A-g>", function()
   require("nvchad.term").new { pos = "sp", id = "floa", cmd = "lazygit" .. ";exit", size = 1, clear_cmd = true }
 end, { desc = "Lazygit" }) -- Описание команды для справки и отображения в пользовательском интерфейсе
 
