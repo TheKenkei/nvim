@@ -1,24 +1,4 @@
--- Загрузка пользовательских опций из модуля nvchad.options
 require "nvchad.options"
-
--- Установка иконок для различных типов диагностических сообщений
-local signs = {
-  Error = " ", -- Иконка для ошибок
-  Warn = " ", -- Иконка для предупреждений
-  Hint = " ", -- Иконка для подсказок
-  Info = " ", -- Иконка для информационных сообщений
-}
-
--- Применение определений знаков для каждого типа диагностического сообщения
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type -- Имя highlight-группы
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl }) -- Определение знака
-end
-
--- Добавление пользовательских настроек здесь!
-
--- Установка опций редактора (для примера)
--- local o = vim.o
--- o.cursorlineopt ='both' -- чтобы включить выделение текущей строки!
-vim.opt.relativenumber = true -- Включение относительных номеров строк
-vim.opt.scrolloff = 8 -- Отступ от верхнего и нижнего краев при скроллинге
+local opt = vim.opt
+opt.relativenumber = true
+opt.scrolloff = 8
