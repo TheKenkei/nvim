@@ -1,5 +1,24 @@
 require "nvchad.mappings"
+
+-- add yours here
+
 local map = vim.keymap.set
+
+map("n", ";", ":", { desc = "CMD enter command mode" })
+map("i", "jk", "<ESC>")
+
+map({ "n", "i", "v" }, "<C-s>", function()
+  vim.lsp.buf.format {}
+  vim.cmd "write"
+end, { desc = "Save" })
+
+map("n", "<A-g>", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+map("n", "<c-l>", "<cmd>:TmuxNavigateRight<cr>", { desc = "Tmux Right" })
+map("n", "<c-h>", "<cmd>:TmuxNavigateLeft<cr>", { desc = "Tmux Left" })
+map("n", "<c-k>", "<cmd>:TmuxNavigateUp<cr>", { desc = "Tmux Up" })
+map("n", "<c-j>", "<cmd>:TmuxNavigateDown<cr>", { desc = "Tmux Down" })
+
+-- TODO REFACTOR :
 map("i", "jj", "<ESC>")
 map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "Buffer New" })
 map("n", "<leader>bC", "<cmd>:%bd|e#<cr>", { desc = "Close Other Tabs" })
