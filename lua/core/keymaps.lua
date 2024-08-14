@@ -1,11 +1,12 @@
-require "nvchad.mappings"
+-- Navigate vim panes better
+vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
+vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
+vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
+vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
--- add yours here
+vim.keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR>')
 
 local map = vim.keymap.set
-
-map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
 
 map({ "n", "i", "v" }, "<C-s>", function()
   vim.lsp.buf.format {}
