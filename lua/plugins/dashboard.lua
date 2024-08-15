@@ -27,6 +27,8 @@ return {
           { action = 'Telescope find_files', desc = " Find File", icon = " ", key = "f" },
           { action = 'Telescope  live_grep', desc = " Find Text", icon = " ", key = "w" },
           { action = 'Telescope  git_files', desc = " Git files", icon = " ", key = "g" },
+          { action = 'Mason', desc = " Mason", icon = " ", key = "m" },
+          { action = 'Lazy', desc = " Lazy", icon = " ", key = "l" },
 
         },
         footer = function()

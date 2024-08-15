@@ -1,19 +1,23 @@
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "lua_ls",
     "tsserver",
     "angularls",
     "eslint",
+    "prettier",
+    "prettierd",
+    "lua_ls",
     "html",
     "cssls",
-    "intelephense",
-    "phpactor",
     "emmet_ls",
     "stylelint_lsp",
+    "phpactor",
+    "intelephense",
+    "phpcsfixer",
   }
 })
 
 local lspconfig = require('lspconfig')
+local util = lspconfig.util
 
 local lsp_defaults = lspconfig.util.default_config
 
@@ -39,8 +43,15 @@ require("lspconfig").lua_ls.setup {
   }
 }
 
+require("lspconfig").intelephense.setup({
+  root_dir = util.root_pattern("composer.lock"),
+})
+require("lspconfig").phpactor.setup({
+  root_dir = util.root_pattern("composer.lock"),
+})
 require("lspconfig").stylelint_lsp.setup({})
 require("lspconfig").tsserver.setup({})
+require("lspconfig").angularls.setup({})
 require("lspconfig").eslint.setup({
   filetypes = {
     "html",
@@ -52,7 +63,6 @@ require("lspconfig").eslint.setup({
     "typescript.tsx",
   }
 })
-require("lspconfig").angularls.setup({})
 
 local install_path = vim.fn.stdpath "data" .. "/mason/packages/angular-language-server/node_modules"
 local ang = install_path .. "/@angular/language-server/node_modules"

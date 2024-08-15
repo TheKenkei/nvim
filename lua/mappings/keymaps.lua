@@ -9,7 +9,7 @@ vim.keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR>')
 local map = vim.keymap.set
 
 map({ "n", "i", "v" }, "<C-s>", function()
-  vim.lsp.buf.format {}
+  -- vim.lsp.buf.format {}
   vim.cmd "write"
 end, { desc = "Save" })
 
