@@ -1,4 +1,4 @@
-require("lazy").setup({
+return {
   { "catppuccin/nvim",        name = "catppuccin", priority = 1000 },
   "tpope/vim-commentary",
   "mattn/emmet-vim",
@@ -11,7 +11,6 @@ require("lazy").setup({
   "vim-test/vim-test",
   "lewis6991/gitsigns.nvim",
   "preservim/vimux",
-  "christoomey/vim-tmux-navigator",
   "tpope/vim-fugitive",
   "tpope/vim-surround",
   "stevearc/oil.nvim",
@@ -21,8 +20,6 @@ require("lazy").setup({
   "L3MON4D3/LuaSnip",
   "saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
   {
     "vinnymeller/swagger-preview.nvim",
@@ -31,11 +28,6 @@ require("lazy").setup({
   {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.4",
-    dependencies = { "nvim-lua/plenary.nvim" }
   },
   "nvimtools/none-ls.nvim",
   "kdheepak/lazygit.nvim",
@@ -85,4 +77,4 @@ require("lazy").setup({
       },
     },
   }
-})
+}

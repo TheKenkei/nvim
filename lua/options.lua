@@ -22,3 +22,4 @@ vim.cmd [[ set termguicolors ]]
 vim.wo.number = true
 local opt = vim.opt
 opt.scrolloff = 8
+vim.o.clipboard = "unnamedplus"
