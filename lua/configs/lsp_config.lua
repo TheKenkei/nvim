@@ -3,8 +3,6 @@ require("mason-lspconfig").setup({
     "tsserver",
     "angularls",
     "eslint",
-    "prettier",
-    "prettierd",
     "lua_ls",
     "html",
     "cssls",
@@ -12,7 +10,6 @@ require("mason-lspconfig").setup({
     "stylelint_lsp",
     "phpactor",
     "intelephense",
-    "phpcsfixer",
   }
 })
 
@@ -51,6 +48,7 @@ require("lspconfig").phpactor.setup({
 })
 require("lspconfig").stylelint_lsp.setup({})
 require("lspconfig").tsserver.setup({})
+require("lspconfig").html.setup({})
 require("lspconfig").angularls.setup({})
 require("lspconfig").eslint.setup({
   filetypes = {
