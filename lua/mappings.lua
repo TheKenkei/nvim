@@ -19,6 +19,8 @@ map("n", "<A-g>", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 --  vvvvvv LazyGit vvvvvv
 
 --  ^^^^^^ Editor ^^^^^^
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
 map("n", "\\", "<cmd>:vsplit <CR>", { desc = "Vertical split" })
 map("n", "<leader>bC", "<cmd>:%bd|e#<cr>", { desc = "Close Other Tabs" })
 map("i", "jj", "<ESC>")
@@ -26,4 +28,8 @@ map("n", "<A-q>", "<cmd>confirm q<cr>", { desc = "Quit" })
 map("n", "<leader>qq", "<cmd>confirm qa<cr>", { desc = "Quit" })
 map("n", "<C-A-q>", "<cmd>confirm qa!<cr>", { desc = "Quit" })
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map("i", "<CA-h>", "<C-Left>", { desc = "Left" })
+map("i", "<CA-l>", "<C-Right>", { desc = "Right" })
+map("n", "<C-a>", "ggVG", { desc = "Select all " })
+map("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replase word" })
 --  vvvvvv Editor vvvvvv

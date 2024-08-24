@@ -4,9 +4,11 @@ return {
     event = "BufWritePre",
     opts = require "configs.conform",
   },
-  
-  {"folke/noice.nvim",},
-
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = require "configs.nvimtree",
+  },
+  { "folke/noice.nvim" },
   {
     "neovim/nvim-lspconfig",
     config = function()
