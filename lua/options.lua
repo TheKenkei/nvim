@@ -8,7 +8,7 @@ o.clipboard = "unnamedplus"
 o.relativenumber = true
 o.cursorlineopt = "both" -- to enable cursorline!
 
-opt.scrolloff = 10
+opt.scrolloff = 20
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.shiftround = true
