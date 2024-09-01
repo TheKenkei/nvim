@@ -2,12 +2,19 @@
 require("nvchad.configs.lspconfig").defaults()
 require "configs.lspconfigs.init"
 
+local util = require "lspconfig.util"
 local lspconfig = require "lspconfig"
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "tsserver", "eslint", "stylelint_lsp", "lemminx" }
+local servers = { "html", "cssls", "tsserver", "eslint", "lemminx" }
 
+lspconfig.stylelint_lsp.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  root_dir = util.root_pattern "package.json",
+}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = nvlsp.on_attach,
