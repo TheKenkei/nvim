@@ -23,6 +23,23 @@ map("n", "<A-g>", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 --  vvvvvv LazyGit vvvvvv
 
 --  ^^^^^^ Editor ^^^^^^
+map("n", "<leader>tI", function()
+  local line = vim.api.nvim_get_current_line()
+
+  -- Регулярное выражение для поиска строки с @Inject
+  local pattern = "@Inject%(([%w_]+)%) private readonly ([%w_]+): ([%w_]+)"
+
+  -- Заменяем строку на нужный формат
+  local new_line = line:gsub(pattern, "private readonly %2 = inject(%1)")
+
+  -- Проверяем, есть ли изменения, и если да - устанавливаем новую строку
+  if new_line ~= line then
+    vim.api.nvim_set_current_line(new_line)
+  else
+    print "No match found!"
+  end
+end, { desc = "Transform inject", noremap = true, silent = true })
+map("i", "<C-p>", "<cmd>put<CR>")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "\\", "<cmd>:vsplit <CR>", { desc = "Vertical split" })
