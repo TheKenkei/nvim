@@ -33,11 +33,3 @@ lspconfig.lemminx.setup {
     "xml",
   },
 }
-lspconfig.eslint.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  root_dir = util.root_pattern(".eslintrc", ".eslintrc.json", "package.json"),
-  settings = {
-    packageManager = "npm",
-  },
-}

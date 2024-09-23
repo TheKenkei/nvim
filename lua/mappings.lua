@@ -10,7 +10,13 @@ map("n", "<c-j>", "<cmd>:TmuxNavigateDown<cr>", { desc = "Tmux Down" })
 --  vvvvvv TmuxNavigate vvvvvv
 
 --  ^^^^^^ Eslint ^^^^^^
-map("n", "<leader>le", "<cmd>EslintFixAll<cr>", { desc = "Eslint fix all problem" })
+map(
+  "n",
+  "<leader>le",
+  "<cmd>silent !eslint_d --fix % > /dev/null 2>&1<CR>",
+  { desc = "Eslint fix all problem", noremap = true, silent = true }
+)
+
 --  vvvvvv Eslint vvvvvv
 --  ^^^^^^ Telescope ^^^^^^
 local builtin = require "telescope.builtin"
