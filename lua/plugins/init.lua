@@ -6,8 +6,12 @@ return {
   },
   {
     "nvim-tree/nvim-tree.lua",
+    dependencies = {
+      "DaikyXendo/nvim-material-icon",
+    },
     opts = require "configs.nvimtree",
   },
+
   { "folke/noice.nvim" },
   {
     "neovim/nvim-lspconfig",
@@ -18,6 +22,9 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "DaikyXendo/nvim-material-icon",
+    },
     opts = require "configs.treesitter",
   },
   {
