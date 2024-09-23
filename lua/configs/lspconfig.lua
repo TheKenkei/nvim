@@ -6,15 +6,8 @@ local util = require "lspconfig.util"
 local lspconfig = require "lspconfig"
 local nvlsp = require "nvchad.configs.lspconfig"
 
--- EXAMPLE
-local servers = { "html", "cssls", "tsserver", "eslint", "lemminx", "emmet_language_server" }
+local servers = { "html", "ts_ls", "lemminx" }
 
--- lspconfig.stylelint_lsp.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
---   root_dir = util.root_pattern "package.json",
--- }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = nvlsp.on_attach,
@@ -22,3 +15,29 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
+
+lspconfig.emmet_language_server.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  filetypes = {
+    "html",
+  },
+}
+
+lspconfig.lemminx.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  filetypes = {
+    "xml",
+  },
+}
+lspconfig.eslint.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  root_dir = util.root_pattern(".eslintrc", ".eslintrc.json", "package.json"),
+  settings = {
+    packageManager = "npm",
+  },
+}
