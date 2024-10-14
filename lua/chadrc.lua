@@ -5,15 +5,21 @@
 local M = {}
 
 M.base46 = {
-  theme = "catppuccin",
+  theme = "onedark",
+  transparency = true,
+  theme_toggle = { "nord", "onedark" },
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },
 }
+M.nvdash = {
+  load_on_startup = true,
+}
 
 M.ui = {
+
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
