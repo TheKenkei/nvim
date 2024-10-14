@@ -16,11 +16,12 @@ map(
   "<cmd>silent !eslint_d --fix % > /dev/null 2>&1<CR>",
   { desc = "Eslint fix all problem", noremap = true, silent = true }
 )
+map("n", "<leader>nn", "<cmd>Noice dismiss<CR>", { noremap = true, desc = "noise dismiss" })
 
 --  vvvvvv Eslint vvvvvv
 --  ^^^^^^ Telescope ^^^^^^
 local builtin = require "telescope.builtin"
-map("n", "<leader><leader>", builtin.find_files, { desc = "Find files" })
+map("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 map("n", "<leader>fg", "<cmd>:Telescope git_files<CR>", { desc = "Git files" })
 --  vvvvvv Telescope vvvvvv
 
@@ -33,8 +34,7 @@ map("n", "<leader>tI", function()
   local line = vim.api.nvim_get_current_line()
 
   -- Регулярное выражение для поиска строки с @Inject
-  local pattern = "@Inject%(([%w_]+)%) private readonly ([%w_]+): ([%w_]+)"
-
+  local pattern = "@Inject%(([%w_]+)%)%s*(private%s+|protected%s+|public%s+|readonly%s+)?%s*([%w_]+): ([%w_]+),?%s*"
   -- Заменяем строку на нужный формат
   local new_line = line:gsub(pattern, "private readonly %2 = inject(%1)")
 
@@ -61,3 +61,16 @@ map("i", "<CA-l>", "<C-Right>", { desc = "Right" })
 map("n", "<C-a>", "ggVG", { desc = "Select all " })
 map("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replase word" })
 --  vvvvvv Editor vvvvvv
+--
+--
+
+--  ^^^^^^ codeium ^^^^^^
+map("i", "<C-g>", function()
+  return vim.fn["codeium#Accept"]()
+end, { expr = true, desc = "Codeium Accept " })
+--  vvvvvv codeium vvvvvv
+--
+
+--
+--  ^^^^^^  ^^^^^^
+--  vvvvvv  vvvvvv
