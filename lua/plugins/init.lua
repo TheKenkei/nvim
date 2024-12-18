@@ -6,9 +6,6 @@ return {
   },
   {
     "nvim-tree/nvim-tree.lua",
-    dependencies = {
-      "DaikyXendo/nvim-material-icon",
-    },
     opts = require "configs.nvimtree",
   },
 
@@ -22,9 +19,6 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      "DaikyXendo/nvim-material-icon",
-    },
     opts = require "configs.treesitter",
   },
   {

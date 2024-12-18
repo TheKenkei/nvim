@@ -10,7 +10,7 @@ local options = {
   },
   view = {
     adaptive_size = true, -- Адаптивный размер окна
-    side = "left", -- Сторона окна (слева)
+    side = "right", -- Сторона окна (слева)
     number = true, -- Показывать номера строк
     relativenumber = true, -- Показывать относительные номера строк
   },

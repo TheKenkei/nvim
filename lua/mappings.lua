@@ -10,12 +10,7 @@ map("n", "<c-j>", "<cmd>:TmuxNavigateDown<cr>", { desc = "Tmux Down" })
 --  vvvvvv TmuxNavigate vvvvvv
 
 --  ^^^^^^ Eslint ^^^^^^
-map(
-  "n",
-  "<leader>le",
-  "<cmd>silent !eslint_d --fix % > /dev/null 2>&1<CR>",
-  { desc = "Eslint fix all problem", noremap = true, silent = true }
-)
+map("n", "<leader>le", "<cmd>:EslintFixAll<CR>", { desc = "Eslint fix all problem", noremap = true, silent = true })
 map("n", "<leader>nn", "<cmd>Noice dismiss<CR>", { noremap = true, desc = "noise dismiss" })
 
 --  vvvvvv Eslint vvvvvv
@@ -49,9 +44,17 @@ map("i", "<C-p>", "<cmd>put<CR>")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "\\", "<cmd>:vsplit <CR>", { desc = "Vertical split" })
-map("n", "<leader>q", function()
-  require("nvchad.tabufline").closeAllBufs()
+map("n", "<leader>qq", function()
+  require("nvchad.tabufline").closeAllBufs(false)
 end, { desc = "Close Other Tabs" })
+
+map("n", "<leader>ql", function()
+  require("nvchad.tabufline").closeBufs_at_direction "right"
+end, { desc = "Close Other Tabs" })
+map("n", "<leader>qh", function()
+  require("nvchad.tabufline").closeBufs_at_direction "left"
+end, { desc = "Close Other Tabs" })
+
 map("i", "jj", "<ESC>")
 map("n", "<A-q>", "<cmd>confirm q<cr>", { desc = "Quit" })
 map("n", "<C-A-q>", "<cmd>confirm qa!<cr>", { desc = "Quit" })
