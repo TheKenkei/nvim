@@ -13,6 +13,9 @@ local options = {
     side = "right", -- Сторона окна (слева)
     number = true, -- Показывать номера строк
     relativenumber = true, -- Показывать относительные номера строк
+    float = {
+      enable = true,
+    },
   },
   renderer = {
     full_name = true,
