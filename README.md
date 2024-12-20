@@ -1,3 +1,5 @@
+![screenshot](./.github/assets/start.png)
+
 # INSTALL
 
 ```sh
