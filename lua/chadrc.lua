@@ -16,10 +16,26 @@ M.base46 = {
 }
 M.nvdash = {
   load_on_startup = true,
+
+  header = {
+    "                            ",
+    "██   ██ ███████ ███    ██ ██   ██ ███████ ██ ",
+    "██  ██  ██      ████   ██ ██  ██  ██      ██ ",
+    "█████   █████   ██ ██  ██ █████   █████   ██ ",
+    "██  ██  ██      ██  ██ ██ ██  ██  ██      ██ ",
+    "██   ██ ███████ ██   ████ ██   ██ ███████ ██ ",
+    "                            ",
+    "     Powered By  eovim    ",
+    "                            ",
+  },
   buttons = {
-    { txt = "  Find File", keys = "ff", cmd = "Telescope find_files" },
-    { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles" },
-    { txt = "󰈭  Find Word", keys = "fw", cmd = "Telescope live_grep" },
+    { txt = "  Git diff files", keys = "g", cmd = "Telescope git_status " },
+    { txt = "  Find File", keys = "f", cmd = "Telescope find_files" },
+    { txt = "󰈭  Find Word", keys = "w", cmd = "Telescope live_grep" },
+
+    { txt = "󰏔  Mason", keys = "m", cmd = "Mason" },
+    { txt = "󰏗  Lazy", keys = "l", cmd = "Lazy" },
+
     { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
     { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
 

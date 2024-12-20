@@ -88,4 +88,9 @@ return {
     "Exafunction/codeium.vim",
     lazy = false,
   },
+  {
+    "smjonas/inc-rename.nvim",
+    cmd = "IncRename",
+    config = true,
+  },
 }

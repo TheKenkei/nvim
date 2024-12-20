@@ -3,6 +3,8 @@ local options = {
     "vim",
     "lua",
     "vimdoc",
+    "dockerfile",
+
     "html",
     "css",
     "scss",
@@ -11,6 +13,7 @@ local options = {
     "javascript",
     "php",
     "gitcommit",
+    "gitignore",
     "xml",
     "yaml",
   },

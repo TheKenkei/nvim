@@ -44,6 +44,7 @@ map("i", "<C-p>", "<cmd>put<CR>")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "\\", "<cmd>:vsplit <CR>", { desc = "Vertical split" })
+map("n", "<C-\\>", "<cmd>:split <CR>", { desc = "Vertical split" })
 map("n", "<leader>qq", function()
   require("nvchad.tabufline").closeAllBufs(false)
 end, { desc = "Close Other Tabs" })
@@ -73,6 +74,10 @@ map("i", "<C-g>", function()
 end, { expr = true, desc = "Codeium Accept " })
 --  vvvvvv codeium vvvvvv
 --
+--  ^^^^^^  ^^^^^^
+-- RENAME
+map("n", "<leader>lr", ":IncRename ", { desc = "Rename" })
+--  vvvvvv  vvvvvv
 
 --
 --  ^^^^^^  ^^^^^^
