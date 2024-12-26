@@ -93,4 +93,20 @@ return {
     cmd = "IncRename",
     config = true,
   },
+  {
+
+    "anuvyklack/keymap-amend.nvim",
+  },
+  {
+    "NvChad/nvcommunity",
+    { import = "nvcommunity.diagnostics.errorlens" },
+    { import = "nvcommunity.completion.codeium" },
+    { import = "nvcommunity.editor.hlargs" },
+    { import = "nvcommunity.editor.illuminate" },
+    { import = "nvcommunity.editor.satellite" },
+    { import = "nvcommunity.folds.ufo" },
+
+    -- { import = "nvcommunity.lsp." },
+    --
+  },
 }
