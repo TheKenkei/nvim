@@ -6,6 +6,9 @@ return {
   },
   {
     "nvim-tree/nvim-tree.lua",
+    dependencies = {
+      "DaikyXendo/nvim-material-icon",
+    },
     opts = require "configs.nvimtree",
   },
 
@@ -99,7 +102,7 @@ return {
   },
   {
     "NvChad/nvcommunity",
-    { import = "nvcommunity.diagnostics.errorlens" },
+    -- { import = "nvcommunity.diagnostics.errorlens" },
     { import = "nvcommunity.completion.codeium" },
     { import = "nvcommunity.editor.hlargs" },
     { import = "nvcommunity.editor.illuminate" },
