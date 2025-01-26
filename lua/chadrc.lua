@@ -5,77 +5,74 @@
 local M = {}
 
 M.base46 = {
-  theme = "onedark",
+  theme = "kanagawa",
+  transparency = true,
+  theme_toggle = { "kanagawa", "kanagawa" },
 
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
-}
-M.ui = {
-  ------------------------------- base46 -------------------------------------
-  -- hl = highlights
-  hl_add = {},
-  hl_override = {},
-  changed_themes = {},
-  theme_toggle = { "onedark", "one_light" },
-  theme = "onedark", -- default theme
-  transparency = false,
-
-  cmp = {
-    icons = true,
-    lspkind_text = true,
-    style = "default", -- default/flat_light/flat_dark/atom/atom_colored
+  hl_override = {
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
   },
+}
+M.nvdash = {
+  load_on_startup = true,
 
-  telescope = { style = "bordered" }, -- borderless / bordered
+  header = {
+    "                            ",
+    "██   ██ ███████ ███    ██ ██   ██ ███████ ██ ",
+    "██  ██  ██      ████   ██ ██  ██  ██      ██ ",
+    "█████   █████   ██ ██  ██ █████   █████   ██ ",
+    "██  ██  ██      ██  ██ ██ ██  ██  ██      ██ ",
+    "██   ██ ███████ ██   ████ ██   ██ ███████ ██ ",
+    "                            ",
+    "     Powered By  eovim    ",
+    "                            ",
+  },
+  buttons = {
+    { txt = "  Git diff files", keys = "g", cmd = "Telescope git_status " },
+    { txt = "  Find File", keys = "f", cmd = "Telescope find_files" },
+    { txt = "󰈭  Find Word", keys = "w", cmd = "Telescope live_grep" },
 
-  ------------------------------- nvchad_ui modules -----------------------------
+    { txt = "󰏔  Mason", keys = "m", cmd = "Mason" },
+    { txt = "󰏗  Lazy", keys = "l", cmd = "Lazy" },
+
+    { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
+    { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
+
+    { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+
+    {
+      txt = function()
+        local stats = require("lazy").stats()
+        local ms = math.floor(stats.startuptime) .. " ms"
+        return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
+      end,
+      hl = "NvDashFooter",
+      no_gap = true,
+    },
+
+    { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+  },
+}
+
+M.ui = {
+
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
-    separator_style = "round",
+    separator_style = "block",
     order = nil,
-    modules = nil,
+    -- modules = nil,
   },
 
   -- lazyload it when there are 1+ buffers
   tabufline = {
     enabled = true,
-    lazyload = true,
+    lazyload = false,
     order = { "treeOffset", "buffers", "tabs", "btns" },
     modules = nil,
   },
-
-  nvdash = {
-    load_on_startup = true,
-
-    header = {
-      "           ▄ ▄                   ",
-      "       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     ",
-      "       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █     ",
-      "    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █     ",
-      "  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ",
-      "  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄",
-      "▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █",
-      "█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █",
-      "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    ",
-    },
-
-    buttons = {
-      { "󰈭  Find Word", "Spc f w", "Telescope live_grep" },
-      { "  Find File", "Spc f f", "Telescope find_files" },
-      { "󰈚  Recent Files", "Spc f o", "Telescope oldfiles" },
-      { "  Bookmarks", "Spc m a", "Telescope marks" },
-      { "  Themes", "Spc t h", "Telescope themes" },
-      { "  Mappings", "Spc c h", "NvCheatsheet" },
-    },
-  },
-
-  cheatsheet = { theme = "simple" }, -- simple/grid
-
-  lsp = { signature = true },
 }
 
 return M

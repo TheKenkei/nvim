@@ -1,67 +1,84 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
+--  ^^^^^^ TmuxNavigate ^^^^^^
+map("n", "<c-l>", "<cmd>:TmuxNavigateRight<cr>", { desc = "Tmux Right" })
+map("n", "<c-h>", "<cmd>:TmuxNavigateLeft<cr>", { desc = "Tmux Left" })
+map("n", "<c-k>", "<cmd>:TmuxNavigateUp<cr>", { desc = "Tmux Up" })
+map("n", "<c-j>", "<cmd>:TmuxNavigateDown<cr>", { desc = "Tmux Down" })
+--  vvvvvv TmuxNavigate vvvvvv
 
-map({ "n", "i", "v" }, "<C-s>", function()
-  vim.lsp.buf.format {}
-  vim.cmd "write"
-end, { desc = "Save" })
+--  ^^^^^^ Eslint ^^^^^^
+map("n", "<leader>le", "<cmd>:EslintFixAll<CR>", { desc = "Eslint fix all problem", noremap = true, silent = true })
+map("n", "<leader>nn", "<cmd>Noice dismiss<CR>", { noremap = true, desc = "noise dismiss" })
 
+--  vvvvvv Eslint vvvvvv
+--  ^^^^^^ Telescope ^^^^^^
+local builtin = require "telescope.builtin"
+map("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+map("n", "<leader>fg", "<cmd>:Telescope git_files<CR>", { desc = "Git files" })
+--  vvvvvv Telescope vvvvvv
+
+--  ^^^^^^ LazyGit ^^^^^^
 map("n", "<A-g>", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
-map("n", "<c-l>", "<cmd>:TmuxNavigateRight<cr>", { desc = "Tmux Right" })
-map("n", "<c-h>", "<cmd>:TmuxNavigateLeft<cr>", { desc = "Tmux Left" })
-map("n", "<c-k>", "<cmd>:TmuxNavigateUp<cr>", { desc = "Tmux Up" })
-map("n", "<c-j>", "<cmd>:TmuxNavigateDown<cr>", { desc = "Tmux Down" })
+--  vvvvvv LazyGit vvvvvv
 
--- TODO REFACTOR :
-map("i", "jj", "<ESC>")
-map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "Buffer New" })
-map("n", "<leader>bC", "<cmd>:%bd|e#<cr>", { desc = "Close Other Tabs" })
-map("n", "<leader>lq", vim.diagnostic.setloclist, { desc = "Lsp diagnostic loclist" })
-map("n", "[[", function()
-  vim.diagnostic.goto_prev()
-  vim.lsp.buf.code_action()
-end, { desc = "Lsp prev diagnostic" })
-map("n", "]]", function()
-  vim.diagnostic.goto_next()
-  vim.lsp.buf.code_action()
-end, { desc = "Lsp next diagnostic" })
-map("n", "<A-q>", "<cmd>confirm q<cr>", { desc = "Quit" })
-map("n", "<leader>qq", "<cmd>confirm qa<cr>", { desc = "Quit" })
-map("n", "<C-A-q>", "<cmd>confirm qa!<cr>", { desc = "Quit" })
-map("n", "\\", "<cmd>:vsplit <CR>", { desc = "Vertical split" })
-map("n", "<leader>ut", "<cmd>Telescope themes<CR>", { desc = "Telescope Nvchad themes" })
-vim.keymap.set("i", "<C-g>", function()
-  return vim.fn["codeium#Accept"]()
-end, { expr = true })
-map("n", "<c-l>", "<cmd>:TmuxNavigateRight<cr>", { desc = "Tmux Right" })
-map("n", "<c-h>", "<cmd>:TmuxNavigateLeft<cr>", { desc = "Tmux Left" })
-map("n", "<c-k>", "<cmd>:TmuxNavigateUp<cr>", { desc = "Tmux Up" })
-map("n", "<c-j>", "<cmd>:TmuxNavigateDown<cr>", { desc = "Tmux Down" })
-map("n", "<leader>df", "<cmd>:%s//<cr>", { desc = "Delete find word" })
+--  ^^^^^^ Editor ^^^^^^
+map("n", "<leader>tI", function()
+  local line = vim.api.nvim_get_current_line()
+
+  -- Регулярное выражение для поиска строки с @Inject
+  local pattern = "@Inject%(([%w_]+)%)%s*(private%s+|protected%s+|public%s+|readonly%s+)?%s*([%w_]+): ([%w_]+),?%s*"
+  -- Заменяем строку на нужный формат
+  local new_line = line:gsub(pattern, "private readonly %2 = inject(%1)")
+
+  -- Проверяем, есть ли изменения, и если да - устанавливаем новую строку
+  if new_line ~= line then
+    vim.api.nvim_set_current_line(new_line)
+  else
+    print "No match found!"
+  end
+end, { desc = "Transform inject", noremap = true, silent = true })
+map("i", "<C-p>", "<cmd>put<CR>")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
-map("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-map("n", "<leader>th", function()
-  require("nvchad.term").new { pos = "sp", size = 0.3 }
-end, { desc = "Terminal New horizontal term" })
-map("n", "<leader>tv", function()
-  require("nvchad.term").new { pos = "vsp", size = 0.3 }
-end, { desc = "Terminal New vertical window" })
-map("n", "<leader>le", "<cmd:EslintFixAll<cr>", { desc = "Eslint fix all" })
-map("i", "<C-s>", "<cmd>:w<cr><ESC>", { desc = "Save" })
-map("n", "<A-e>", function()
-  require("nvchad.term").new { pos = "sp", id = "floa", cmd = "lazygit", size = 1, clear_cmd = true }
-end, { desc = "Test" })
+map("n", "\\", "<cmd>:vsplit <CR>", { desc = "Vertical split" })
+map("n", "<C-\\>", "<cmd>:split <CR>", { desc = "Vertical split" })
+map("n", "<leader>qq", function()
+  require("nvchad.tabufline").closeAllBufs(false)
+end, { desc = "Close Other Tabs" })
+
+map("n", "<leader>ql", function()
+  require("nvchad.tabufline").closeBufs_at_direction "right"
+end, { desc = "Close Other Tabs" })
+map("n", "<leader>qh", function()
+  require("nvchad.tabufline").closeBufs_at_direction "left"
+end, { desc = "Close Other Tabs" })
+
+map("i", "jj", "<ESC>")
+map("n", "<A-q>", "<cmd>confirm q<cr>", { desc = "Quit" })
+map("n", "<C-A-q>", "<cmd>confirm qa!<cr>", { desc = "Quit" })
+map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 map("i", "<CA-h>", "<C-Left>", { desc = "Left" })
 map("i", "<CA-l>", "<C-Right>", { desc = "Right" })
-map("i", "<CA-k>", "<{>", { desc = "Up" })
-map("i", "<CA-j>", "<}>", { desc = "Down" })
 map("n", "<C-a>", "ggVG", { desc = "Select all " })
+map("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replase word" })
+--  vvvvvv Editor vvvvvv
+--
+--
+
+--  ^^^^^^ codeium ^^^^^^
+map("i", "<C-g>", function()
+  return vim.fn["codeium#Accept"]()
+end, { expr = true, desc = "Codeium Accept " })
+--  vvvvvv codeium vvvvvv
+--
+--  ^^^^^^  ^^^^^^
+-- RENAME
+map("n", "<leader>lr", ":IncRename ", { desc = "Rename" })
+--  vvvvvv  vvvvvv
+
+--
+--  ^^^^^^  ^^^^^^
+--  vvvvvv  vvvvvv
