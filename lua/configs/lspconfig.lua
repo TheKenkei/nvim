@@ -1,12 +1,12 @@
--- load defaults i.e lua_lsp
-require("nvchad.configs.lspconfig").defaults()
-require "configs.lspconfigs.init"
-
 local util = require "lspconfig.util"
 local lspconfig = require "lspconfig"
 local nvlsp = require "nvchad.configs.lspconfig"
 
 local servers = { "html", "ts_ls", "lemminx" }
+
+local install_path = vim.fn.stdpath "data" .. "/mason/packages/angular-language-server/node_modules"
+local ang = install_path .. "/@angular/language-server/node_modules"
+local angular_cmd = { "ngserver", "--stdio", "--tsProbeLocations", install_path, "--ngProbeLocations", ang }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -42,5 +42,40 @@ lspconfig.eslint.setup {
     "html",
     "typescript",
     "javascript",
+  },
+}
+
+lspconfig.angularls.setup {
+  on_attach = nvlsp.on_attach,
+  cmd = angular_cmd,
+  root_dir = util.root_pattern "package.json",
+  on_new_config = function(new_config, new_root_dir)
+    new_config.cmd = angular_cmd
+  end,
+}
+require("nvchad.configs.lspconfig").defaults()
+
+lspconfig.tailwindcss.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  settings = {
+    filetypes = {
+      "html",
+      "htmlangular",
+      "sass",
+      "scss",
+    },
+  },
+}
+
+lspconfig.cssls.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  settings = {
+    scss = {
+      validate = false, -- отключить валидацию SCSS
+    },
   },
 }
