@@ -8,6 +8,7 @@ local options = {
     javascript = { "prettier" },
     json = { "prettier" },
     jsonc = { "prettier" },
+    zsh = { "beautysh" },
   },
 
   format_on_save = {
