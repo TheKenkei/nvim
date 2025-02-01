@@ -20,3 +20,20 @@ opt.backspace = "2" -- Настраиваем поведение backspace: по
 opt.showcmd = false -- Показывать частичную команду в правом нижнем углу экрана
 opt.autowrite = true -- Автоматически сохранять файл перед выполнением определенных команд (например, :make)
 opt.cursorline = true -- Включаем подсветку строки, на которой находится курсор
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+vim.opt.termguicolors = true
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append "@-@"
+vim.opt.updatetime = 50
+vim.opt.colorcolumn = "80"
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+vim.opt.termguicolors = true
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append "@-@"
+vim.opt.updatetime = 50
+vim.opt.colorcolumn = "80"
