@@ -6,8 +6,8 @@
 local M = {}
 
 M.base46 = {
-    theme = "onedark",
-    transparency = true,
+    theme = "nightowl",
+    transparency = false,
 
     hl_override = {
         Comment = { italic = true },

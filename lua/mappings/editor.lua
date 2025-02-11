@@ -24,3 +24,4 @@ map("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true, desc = "move 
 map("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { noremap = true, silent = true, desc = "move line up" })
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = "move line up" })
 map("v", "<leader>tr", "<cmd>:Translate ru<cr>", { desc = "Translate to rus" })
+map("n", "<leader><leader>", "<cmd>:Telescope lsp_document_symbols<cr>", { desc = "find lsp symbols" })
