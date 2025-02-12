@@ -23,7 +23,6 @@ return {
         "NvChad/nvcommunity",
         { import = "nvcommunity.git.diffview" },
         { import = "nvcommunity.git.lazygit" },
-        { import = "nvcommunity.completion.codeium" },
         { import = "nvcommunity.diagnostics.trouble" },
         { import = "nvcommunity.editor.cutlass" },
         { import = "nvcommunity.editor.satellite" },
