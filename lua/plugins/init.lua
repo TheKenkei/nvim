@@ -1,36 +1,38 @@
 return {
-    {
-        "stevearc/conform.nvim",
-        event = "BufWritePre", -- uncomment for format on save
-        opts = require "configs.conform",
-    },
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            require "configs.lspconfig"
-        end,
-    },
+  {
+    "christoomey/vim-tmux-navigator",
+    cmd = { "TmuxNavigateLeft", "TmuxNavigateDown", "TmuxNavigateUp", "TmuxNavigateRight", "TmuxNavigatePrevious" },
+  },
 
-    {
-        "nvim-treesitter/nvim-treesitter",
-        opts = require "configs.treesitter",
+  {
+    "uga-rosa/translate.nvim",
+    cmd = { "Translate" },
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+    ---@class PluginLspOpts
+    opts = {
+      ---@type lspconfig.options
+      servers = {
+        html = {},
+        ts_ls = {},
+        cssls = {},
+        emmet_ls = {},
+        css_variables = {},
+      },
     },
-    {
-        "christoomey/vim-tmux-navigator",
-        cmd = { "TmuxNavigateLeft", "TmuxNavigateDown", "TmuxNavigateUp", "TmuxNavigateRight", "TmuxNavigatePrevious" },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        angularls = {
+          root_dir = function(fname)
+            return require("lspconfig.util").root_pattern("nx.json", "angular.json")(fname) or vim.loop.cwd()
+          end,
+        },
+      },
     },
-    {
-        "NvChad/nvcommunity",
-        { import = "nvcommunity.git.diffview" },
-        { import = "nvcommunity.git.lazygit" },
-        { import = "nvcommunity.diagnostics.trouble" },
-        { import = "nvcommunity.editor.cutlass" },
-        { import = "nvcommunity.editor.satellite" },
-        { import = "nvcommunity.editor.treesittercontext" },
-        { import = "nvcommunity.lsp.lspui" },
-    },
-    {
-        "uga-rosa/translate.nvim",
-        cmd = { "Translate" },
-    },
+  },
 }
