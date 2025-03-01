@@ -77,3 +77,5 @@ map("n", "<c-j>", cmd ":TmuxNavigateDown", { desc = "Tmux Down" })
 map("n", "<C-g>", function()
     return vim.fn["codeium#Accept"]()
 end, { desc = "Codeium accesst" })
+
+map("n", "<leader>nn", "<cmd>Noice dismiss<CR>", { noremap = true, desc = "noise dismiss" })

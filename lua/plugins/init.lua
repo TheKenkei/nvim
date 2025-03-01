@@ -13,6 +13,10 @@ return {
 
     {
         "nvim-treesitter/nvim-treesitter",
+
+        dependencies = {
+            "DaikyXendo/nvim-material-icon",
+        },
         opts = require "configs.treesitter",
     },
     {
@@ -28,6 +32,7 @@ return {
         { import = "nvcommunity.editor.satellite" },
         { import = "nvcommunity.editor.treesittercontext" },
         { import = "nvcommunity.lsp.lspui" },
+        { import = "nvcommunity.tools.telescope-fzf-native" },
     },
     {
         "uga-rosa/translate.nvim",

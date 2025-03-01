@@ -1,0 +1,41 @@
+-- local function my_on_attach(bufnr)
+--     local api = require "nvim-tree.api"
+--
+--     local function opts(desc)
+--         return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+--     end
+--
+--     -- default mappings
+--     api.config.mappings.default_on_attach(bufnr)
+--
+--     vim.keymap.set("n", "?", api.tree.toggle_help, opts "Help")
+--     vim.keymap.set("n", "l", api.node.open.edit, opts "Open")
+--     vim.keymap.set("n", "h", api.node.navigate.parent_close, opts "Close directory")
+--
+--     vim.keymap.set("n", "<C-K>", "<cmd>:TmuxNavigateUp<cr>", opts "Close directory")
+--     vim.keymap.set("n", "<Enter>", api.node.open.no_window_picker, opts "Open no picker")
+-- end
+--
+-- -- pass to setup along with your other options
+-- require("nvim-tree").setup {
+--     on_attach = my_on_attach,
+-- }
+--
+-- local options = {
+--     sync_root_with_cwd = true,
+--     update_focused_file = {
+--         enable = true, -- Включить автоматическое обновление фокусированного файла
+--     },
+--     view = {
+--         adaptive_size = true, -- Адаптивный размер окна
+--         number = true, -- Показывать номера строк
+--         relativenumber = true, -- Показывать относительные номера строк
+--     },
+--     renderer = {
+--         full_name = true,
+--         root_folder_label = ":~:s?$?",
+--         highlight_opened_files = "name", -- Не выделять открытые файлы
+--     },
+-- }
+--
+-- return options

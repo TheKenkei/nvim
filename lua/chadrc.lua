@@ -31,6 +31,18 @@ M.ui = {
         -- modules = nil,
     },
 
+    telescope = { style = "bordered" }, -- borderless / bordered
+
+    cmp = {
+        icons_left = true, -- only for non-atom styles!
+        style = "default", -- default/flat_light/flat_dark/atom/atom_colored
+        abbr_maxwidth = 60,
+        format_colors = {
+            tailwind = true, -- will work for css lsp too
+            icon = "󱓻",
+        },
+    },
+
     -- lazyload it when there are 1+ buffers
     tabufline = {
         enabled = true,
@@ -62,10 +74,10 @@ M.nvdash = {
         { txt = "󰏔  Mason", keys = "m", cmd = "Mason" },
         { txt = "󰏗  Lazy", keys = "l", cmd = "Lazy" },
 
-        { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
-        { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
+        { txt = "󱥚  Themes", keys = "t", cmd = ":lua require('nvchad.themes').open()" },
+        { txt = "  Keymaps", keys = "k", cmd = "NvCheatsheet" },
 
-        { txt = "Quit", keys = "q", cmd = "q" },
+        { txt = "󰈆  Quit", keys = "q", cmd = "q" },
 
         { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
         {
