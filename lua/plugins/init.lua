@@ -13,10 +13,6 @@ return {
 
     {
         "nvim-treesitter/nvim-treesitter",
-
-        dependencies = {
-            "DaikyXendo/nvim-material-icon",
-        },
         opts = require "configs.treesitter",
     },
     {

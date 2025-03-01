@@ -1,8 +1,5 @@
 return {
     "nvim-tree/nvim-tree.lua",
-    dependencies = {
-        "DaikyXendo/nvim-material-icon",
-    },
     opts = {
         on_attach = function(bufnr)
             local api = require "nvim-tree.api"
