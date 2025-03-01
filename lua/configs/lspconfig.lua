@@ -8,6 +8,8 @@ local install_path = vim.fn.stdpath "data" .. "/mason/packages/angular-language-
 local ang = install_path .. "/@angular/language-server/node_modules"
 local angular_cmd = { "ngserver", "--stdio", "--tsProbeLocations", install_path, "--ngProbeLocations", ang }
 
+require("nvchad.configs.lspconfig").defaults()
+
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         on_attach = nvlsp.on_attach,
@@ -53,7 +55,6 @@ lspconfig.angularls.setup {
         new_config.cmd = angular_cmd
     end,
 }
-require("nvchad.configs.lspconfig").defaults()
 
 lspconfig.tailwindcss.setup {
     on_attach = nvlsp.on_attach,
