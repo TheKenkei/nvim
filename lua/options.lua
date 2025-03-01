@@ -1,31 +1,28 @@
--- Подключаем модуль с настройками NvChad (фреймворк для конфигурации Neovim)
 require "nvchad.options"
 
--- Отключаем создание swap-файлов (файлов подкачки) для текущего буфера
 vim.cmd [[ set noswapfile ]]
 
--- Создаем локальные переменные для удобства работы с настройками
-local opt = vim.opt -- opt используется для установки опций, связанных с буферами и окнами
-local o = vim.o -- o используется для установки глобальных опций
+local opt = vim.opt
+local o = vim.o
 
-o.clipboard = "unnamedplus" -- Настройка буфера обмена для использования системного буфера обмена (clipboard)
-o.relativenumber = true -- Включаем относительную нумерацию строк (номера строк относительно текущей позиции курсора)
-o.cursorlineopt = "both" -- to enable cursorline! Настраиваем отображение курсора: "both" включает подсветку строки и номера строки
-opt.scrolloff = 8 -- Устанавливаем количество строк, которые остаются видимыми при прокрутке вверх/вниз
-opt.tabstop = 4 -- Устанавливаем ширину табуляции в 4 пробела
-opt.shiftwidth = 4 -- Устанавливаем ширину отступа при использовании команд сдвига (например, >> или <<)
-opt.shiftround = true -- Округляет отступы до ближайшего значения, кратного shiftwidth
-opt.expandtab = true -- Преобразует табы в пробелы (включает использование пробелов вместо табуляции)
-opt.backspace = "2" -- Настраиваем поведение backspace: позволяет удалять отступы, концы строк и т.д.
-opt.showcmd = false -- Показывать частичную команду в правом нижнем углу экрана
-opt.autowrite = true -- Автоматически сохранять файл перед выполнением определенных команд (например, :make)
-opt.cursorline = true -- Включаем подсветку строки, на которой находится курсор
+o.clipboard = "unnamedplus"
+o.relativenumber = true
+o.cursorlineopt = "both"
 
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-vim.opt.termguicolors = true
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append "@-@"
-vim.opt.updatetime = 50
-vim.opt.colorcolumn = "120"
+opt.scrolloff = 8
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.shiftround = true
+opt.expandtab = true
+opt.backspace = "2"
+opt.showcmd = false
+opt.autowrite = true
+opt.cursorline = true
+opt.hlsearch = true
+opt.incsearch = true
+opt.termguicolors = true
+opt.scrolloff = 8
+opt.signcolumn = "yes"
+opt.isfname:append "@-@"
+opt.updatetime = 50
+opt.colorcolumn = "120"
