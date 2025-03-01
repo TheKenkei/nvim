@@ -1,3 +1,5 @@
+require "nvchad.mappings"
+
 local map = vim.keymap.set
 local tabs = require "nvchad.tabufline"
 
