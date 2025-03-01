@@ -4,6 +4,8 @@
 
 -- local map = LazyVim.safe_keymap_set
 local map = vim.keymap.set
+local keymap = vim.keymap
+local opts = { noremap = true, silent = true }
 
 local diagnostic_goto = function(next, severity)
   local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
@@ -31,9 +33,6 @@ map("n", "<C-a>", "ggVG", { desc = "Select all " })
 map("n", "\\", "<cmd>:vsplit <CR>", { desc = "Vertical split" })
 map("n", "<C-\\>", "<cmd>:split <CR>", { desc = "Vertical split" })
 
-map("n", "<C-d>", "<C-d>zz", { desc = "Center cursor" })
-map("n", "<C-u>", "<C-u>zz", { desc = "Center cursor" })
-
 map(
   "v",
   "<leader>ss",
@@ -50,8 +49,6 @@ map("n", "<A-/>", "<cmd>:Telescope current_buffer_fuzzy_find<cr>", { desc = "cur
 
 map("n", "<leader>le", "<cmd>:EslintFixAll<cr>", { desc = "Eslint" })
 
-map("n", "<leader>e", "<cmd> Neotree focus <cr>", { desc = "Delete Buffer", noremap = true })
-
 -- map("n", "<leader>x", function()
 --   Snacks.bufdelete()
 -- end, { desc = "Delete Buffer" })
@@ -61,3 +58,12 @@ map("i", "<C-b>", "<Home>", { noremap = true })
 
 map("n", "]]", diagnostic_goto(true), { desc = "Next Diagnostic" })
 map("n", "[[", diagnostic_goto(false), { desc = "Prev Diagnostic" })
+
+map("i", "<C-h>", "<Left>", { noremap = true, desc = "Move" })
+map("i", "<C-j>", "<Down>", { noremap = true, desc = "Move" })
+map("i", "<C-k>", "<Up>", { noremap = true, desc = "Move" })
+map("i", "<C-l>", "<Right>", { noremap = true, desc = "Move" })
+
+-- Split window
+map("n", "ss", ":split<Return>", opts)
+map("n", "sv", ":vsplit<Return>", opts)

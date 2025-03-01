@@ -134,6 +134,10 @@ return {
         "typescript",
         "vim",
         "yaml",
+
+        "scss",
+        "css",
+        "angular",
       },
     },
   },
