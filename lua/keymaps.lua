@@ -11,7 +11,7 @@ del("n", "<leader>h")
 del("n", "<leader>v")
 
 map("i", "jk", "<ESC>")
-map("n", "<leader>qq", cmd "qa", { desc = "Quit" })
+map("n", "<leader>qq", cmd "qa!", { desc = "Quit" })
 map("n", "<leader>gh", cmd "Nvdash", { desc = "Open star page" })
 
 map("n", "<leader>qa", function()

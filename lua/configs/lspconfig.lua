@@ -2,7 +2,7 @@ local util = require "lspconfig.util"
 local lspconfig = require "lspconfig"
 local nvlsp = require "nvchad.configs.lspconfig"
 
-local servers = { "html", "ts_ls", "lemminx", "bashls" }
+local servers = { "html", "vtsls", "lemminx", "bashls" }
 
 local install_path = vim.fn.stdpath "data" .. "/mason/packages/angular-language-server/node_modules"
 local ang = install_path .. "/@angular/language-server/node_modules"
