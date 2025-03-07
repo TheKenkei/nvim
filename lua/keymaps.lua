@@ -24,8 +24,8 @@ map("n", "<leader>qh", function()
     tabs.closeBufs_at_direction "left"
 end, { desc = "Close Other Tabs" })
 
-map("n", "<C-d>", "<C-d>zz", { desc = "Center cursor before scroll" })
-map("n", "<C-u>", "<C-u>zz", { desc = "Center cursor before scroll" })
+-- map("n", "<C-d>", "<C-d>zz", { desc = "Center cursor before scroll", noremap = true, silent = true })
+-- map("n", "<C-u>", "<C-u>zz", { desc = "Center cursor before scroll", noremap = true, silent = true })
 
 map("n", "sv", cmd ":vsplit", { desc = "Vertical split" })
 map("n", "sh", cmd ":split", { desc = "Vertical split" })
@@ -79,3 +79,6 @@ map("n", "<C-g>", function()
 end, { desc = "Codeium accesst" })
 
 map("n", "<leader>nn", "<cmd>Noice dismiss<CR>", { noremap = true, desc = "noise dismiss" })
+map("i", "<C-g>", function()
+    return vim.fn["codeium#Accept"]()
+end, { expr = true })

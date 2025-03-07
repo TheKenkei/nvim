@@ -21,17 +21,37 @@ return {
     },
     {
         "NvChad/nvcommunity",
-        { import = "nvcommunity.git.diffview" },
-        { import = "nvcommunity.git.lazygit" },
+
+        { import = "nvcommunity.completion.codeium" },
+
         { import = "nvcommunity.diagnostics.trouble" },
+
         { import = "nvcommunity.editor.cutlass" },
         { import = "nvcommunity.editor.satellite" },
         { import = "nvcommunity.editor.treesittercontext" },
+
+        { import = "nvcommunity.folds.origami" },
+
+        { import = "nvcommunity.git.diffview" },
+        { import = "nvcommunity.git.lazygit" },
+
+        { import = "nvcommunity.lsp.barbecue" },
         { import = "nvcommunity.lsp.lspui" },
+        { import = "nvcommunity.lsp.lspsaga" },
+
         { import = "nvcommunity.tools.telescope-fzf-native" },
     },
     {
         "uga-rosa/translate.nvim",
         cmd = { "Translate" },
+    },
+    {
+        "karb94/neoscroll.nvim",
+        keys = { "<C-d>", "<C-u>", "<C-f>" },
+        opts = { mappings = {
+            "<C-u>",
+            "<C-d>",
+            "<C-f>",
+        } },
     },
 }
