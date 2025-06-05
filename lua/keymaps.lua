@@ -74,6 +74,11 @@ map("n", "<c-h>", cmd ":TmuxNavigateLeft", { desc = "Tmux Left" })
 map("n", "<c-k>", cmd ":TmuxNavigateUp", { desc = "Tmux Up" })
 map("n", "<c-j>", cmd ":TmuxNavigateDown", { desc = "Tmux Down" })
 
+map("n", "<esc>", "<cmd>Noice dismiss<cr> <cmd>nohlsearch<cr>", { desc = "Esc" })
+map("i", "<C-g>", function()
+    return vim.fn["codeium#Accept"]()
+end, { expr = true })
+
 map("n", "<C-g>", function()
     return vim.fn["codeium#Accept"]()
 end, { desc = "Codeium accesst" })

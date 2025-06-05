@@ -5,6 +5,7 @@ local options = {
         scss = { "prettier" },
         less = { "prettier" },
         html = { "prettier" },
+        htmlangular = { "prettier" },
         typescript = { "prettier" },
         javascript = { "prettier" },
         json = { "prettier" },
