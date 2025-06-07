@@ -30,8 +30,8 @@ return {
         },
         view = {
             adaptive_size = true,
-            relativenumber = true,
-            number = true,
+            -- relativenumber = true,
+            -- number = true,
         },
     },
 }

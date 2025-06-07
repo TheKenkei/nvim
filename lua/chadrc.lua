@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-    theme = "nightowl",
+    theme = "onedark",
     transparency = false,
 
     hl_override = {
@@ -53,7 +53,7 @@ M.ui = {
 }
 
 M.nvdash = {
-    load_on_startup = true,
+    load_on_startup = false,
 
     header = {
         "                            ",

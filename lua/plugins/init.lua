@@ -23,8 +23,8 @@ return {
         "NvChad/nvcommunity",
         { import = "nvcommunity.diagnostics.trouble" },
 
-        { import = "nvcommunity.editor.cutlass" },
-        { import = "nvcommunity.editor.satellite" },
+        -- { import = "nvcommunity.editor.cutlass" },
+        -- { import = "nvcommunity.editor.satellite" },
         { import = "nvcommunity.editor.treesittercontext" },
 
         -- { import = "nvcommunity.folds.origami" },
@@ -43,21 +43,5 @@ return {
     {
         "uga-rosa/translate.nvim",
         cmd = { "Translate" },
-    },
-    {
-        "karb94/neoscroll.nvim",
-        keys = { "<C-d>", "<C-u>", "<C-f>" },
-        opts = { mappings = {
-            "<C-u>",
-            "<C-d>",
-            "<C-f>",
-        } },
-    },
-    {
-        "Exafunction/windsurf.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "hrsh7th/nvim-cmp",
-        },
     },
 }

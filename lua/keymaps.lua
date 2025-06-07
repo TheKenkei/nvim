@@ -87,3 +87,5 @@ map("n", "<leader>nn", "<cmd>Noice dismiss<CR>", { noremap = true, desc = "noise
 map("i", "<C-g>", function()
     return vim.fn["codeium#Accept"]()
 end, { expr = true })
+
+map("v", "<leader>so", ":sort<CR>", { noremap = true, silent = true })
