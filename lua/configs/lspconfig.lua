@@ -50,7 +50,7 @@ lspconfig.eslint.setup {
 lspconfig.angularls.setup {
     on_attach = nvlsp.on_attach,
     cmd = angular_cmd,
-    root_dir = util.root_pattern "package.json",
+    root_dir = util.root_pattern("nx.json", "package.json"),
     on_new_config = function(new_config, new_root_dir)
         new_config.cmd = angular_cmd
     end,
