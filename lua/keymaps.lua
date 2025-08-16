@@ -10,6 +10,7 @@ end
 del("n", "<leader>h")
 del("n", "<leader>v")
 
+map("n", ";", ":")
 map("i", "jk", "<ESC>")
 map("n", "<leader>qq", cmd "qa!", { desc = "Quit" })
 map("n", "<leader>gh", cmd "Nvdash", { desc = "Open star page" })
@@ -24,8 +25,8 @@ map("n", "<leader>qh", function()
     tabs.closeBufs_at_direction "left"
 end, { desc = "Close Other Tabs" })
 
--- map("n", "<C-d>", "<C-d>zz", { desc = "Center cursor before scroll", noremap = true, silent = true })
--- map("n", "<C-u>", "<C-u>zz", { desc = "Center cursor before scroll", noremap = true, silent = true })
+map("n", "<C-d>", "<C-d>zz", { desc = "Center cursor before scroll", noremap = true, silent = true })
+map("n", "<C-u>", "<C-u>zz", { desc = "Center cursor before scroll", noremap = true, silent = true })
 
 map("n", "sv", cmd ":vsplit", { desc = "Vertical split" })
 map("n", "sh", cmd ":split", { desc = "Vertical split" })
@@ -50,6 +51,8 @@ map("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = "m
 map("v", "<leader>tr", cmd ":Translate ru", { desc = "Translate to rus" })
 map("n", "<leader><leader>", cmd ":Telescope lsp_document_symbols", { desc = "find lsp symbols" })
 map("n", "<A-/>", cmd ":Telescope current_buffer_fuzzy_find", { desc = "current_buffer_fuzzy_find" })
+
+map("n", "<leader>fc", cmd ":Telescope lsp_dynamic_workspace_symbols", { desc = "Find symbols in project(class)" })
 
 map("n", "<leader>gg", cmd "LazyGit ", { desc = "LazyGit" })
 map("n", "<leader>gb", cmd "Gitsigns toggle_current_line_blame", { desc = "Git blame toggle" })
@@ -90,3 +93,18 @@ map("i", "<C-g>", function()
 end, { expr = true })
 
 map("v", "<leader>so", ":sort<CR>", { noremap = true, silent = true })
+
+map("n", "vv", "v$%")
+map("n", "VV", "v$%")
+
+map("n", "<a-w>", function()
+    require("nvchad.tabufline").close_buffer()
+end, { desc = "buffer close" })
+
+-- map("n", "~", function()
+--     require("nvchad.tabufline").close_buffer()
+-- end, { desc = "buffer close" })
+
+map({ "n", "t" }, "~", function()
+    require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
+end, { desc = "terminal toggleable vertical term" })

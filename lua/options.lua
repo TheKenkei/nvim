@@ -9,7 +9,7 @@ o.clipboard = "unnamedplus"
 o.relativenumber = true
 o.cursorlineopt = "both"
 
-opt.scrolloff = 8
+opt.scrolloff = 5
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.shiftround = true
@@ -21,7 +21,6 @@ opt.cursorline = true
 opt.hlsearch = true
 opt.incsearch = true
 opt.termguicolors = true
-opt.scrolloff = 10
 opt.signcolumn = "yes"
 opt.isfname:append "@-@"
 opt.updatetime = 50
