@@ -68,7 +68,7 @@ M.nvdash = {
     },
     buttons = {
         { txt = "  Git diff files", keys = " jj", cmd = "Telescope git_status " },
-        { txt = "  Git diff files", keys = "g", cmd = "LazyGit" },
+        { txt = "  LazyGit", keys = "g", cmd = "LazyGit" },
         { txt = "  Find File", keys = "f", cmd = "Telescope find_files" },
         { txt = "󰈭  Find Word", keys = "w", cmd = "Telescope live_grep" },
         { txt = "󰏔  Mason", keys = "m", cmd = "Mason" },
