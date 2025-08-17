@@ -66,7 +66,6 @@ map("n", "<C-A-q>", cmd "confirm qa!", { desc = "Quit" })
 map("n", "c", '"_c', { noremap = true })
 map("n", "C", '"_C', { noremap = true })
 
-map("n", "<leader>le", cmd ":EslintFixAll", { desc = "Eslint" })
 map("n", "<leader>lr", cmd ":LspUI rename", { desc = "Rename" })
 map("n", "]]", cmd ":LspUI diagnostic next", { desc = "Next diagnostic" })
 map("n", "[[", cmd ":LspUI diagnostic prev", { desc = "Prev diagnostic" })

@@ -1,3 +1,5 @@
+local base_on_attach = vim.lsp.config.eslint.on_attach
+
 local util = require "lspconfig.util"
 local lspconfig = require "lspconfig"
 local nvlsp = require "nvchad.configs.lspconfig"
@@ -37,7 +39,17 @@ lspconfig.lemminx.setup {
 }
 
 lspconfig.eslint.setup {
-    on_attach = nvlsp.on_attach,
+    on_attach = function(client, bufnr)
+        if not base_on_attach then
+            return
+        end
+
+        base_on_attach(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "LspEslintFixAll",
+        })
+    end,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
     filetypes = {

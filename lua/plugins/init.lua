@@ -47,4 +47,11 @@ return {
             require("luasnip.loaders.from_vscode").load { paths = { "./snippets" } }
         end,
     },
+    {
+        "fnune/codeactions-on-save.nvim",
+        config = function()
+            local cos = require "codeactions-on-save"
+            cos.register({ "*.ts", "*.tsx" }, { "source.organizeImports.biome", "source.fixAll" })
+        end,
+    },
 }
