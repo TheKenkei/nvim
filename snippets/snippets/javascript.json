@@ -1,0 +1,64 @@
+{
+  "console.log": {
+    "prefix": "/log",
+    "body": ["console.log($0)"]
+  },
+  "tap-console.log": {
+    "prefix": "/tap-console.log",
+    "body": ["tap((data) => console.log('data:', data)),"]
+  },
+  "Create Method in class ": {
+    "prefix": "/fun",
+    "body": ["protected on$1(${2:value}:${3:any}): ${5:void} {", "\t$0", "}"],
+    "description": "Create Method in class "
+  },
+  "Angular Component": {
+    "prefix": "/component",
+    "body": [
+      "import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';",
+      "import { catchError, shareReplay, map, switchMap, Subject, BehaviorSubject, merge, of } from 'rxjs'",
+      "@Component({",
+      "\tselector: '${2:app}-${1:${TM_FILENAME/(.*)\\..+\\..+$/$1/}}',",
+      "\ttemplateUrl: '${1:${TM_FILENAME/(.*)\\..+\\..+$/$1/}}.template.html',",
+      "\tstyleUrl: '${1:${TM_FILENAME/(.*)\\..+\\..+$/$1/}}.styles.scss',",
+      "\tchangeDetection: ChangeDetectionStrategy.OnPush,",
+      "})",
+      "export class ${1/(.*)/${1:/capitalize}/} {}"
+    ]
+  },
+  "Pipe RxJs": {
+    "prefix": "/pipe",
+    "scope": "typescript",
+    "body": ["pipe(", "\t$0", ")"]
+  },
+  "SwitchMap RxJs": {
+    "prefix": "/switchMap",
+    "scope": "typescript",
+    "body": ["switchMap(", "\t(${1:item} : ${2:any})=> $0", "),"]
+  },
+  "ShareReplay RxJs": {
+    "prefix": "/shareReplay",
+    "scope": "typescript",
+    "body": ["shareReplay({refCount:true,bufferSize:1}),"]
+  },
+  "CatchError RxJs": {
+    "prefix": "/catchError",
+    "scope": "typescript",
+    "body": ["catchError((err) => of(err)),"]
+  },
+  "Map RxJs": {
+    "prefix": "/map",
+    "scope": "typescript",
+    "body": ["map((${1:item}: ${2:any}) => $0),"]
+  },
+  "Generate Subject": {
+    "prefix": "/subject",
+    "scope": "typescript",
+    "body": ["private readonly ${1:item}$ = new Subject();"]
+  },
+  "vvBehaviorSubject": {
+    "prefix": "/behaviorSubject",
+    "scope": "typescript",
+    "body": ["private readonly ${1:item}$ = new BehaviorSubject(${2:null});"]
+  }
+}

@@ -95,7 +95,7 @@ end, { expr = true })
 map("v", "<leader>so", ":sort<CR>", { noremap = true, silent = true })
 
 map("n", "vv", "v$%")
-map("n", "VV", "v$%")
+map("n", "VV", "V$%")
 
 map("n", "<a-w>", function()
     require("nvchad.tabufline").close_buffer()
@@ -108,3 +108,6 @@ end, { desc = "buffer close" })
 map({ "n", "t" }, "~", function()
     require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
 end, { desc = "terminal toggleable vertical term" })
+
+map("n", "<leader>ai", ":/imports<cr>")
+map("n", "<leader>fr", cmd ":Telescope registers", { desc = "find registers" })

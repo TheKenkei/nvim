@@ -23,25 +23,28 @@ return {
         "NvChad/nvcommunity",
         { import = "nvcommunity.diagnostics.trouble" },
 
-        -- { import = "nvcommunity.editor.cutlass" },
-        -- { import = "nvcommunity.editor.satellite" },
-        { import = "nvcommunity.editor.treesittercontext" },
+        -- Scrollbar right
+        { import = "nvcommunity.editor.satellite" },
 
-        -- { import = "nvcommunity.folds.origami" },
+        { import = "nvcommunity.editor.treesittercontext" },
 
         { import = "nvcommunity.git.diffview" },
         { import = "nvcommunity.git.lazygit" },
 
-        { import = "nvcommunity.lsp.barbecue" },
         { import = "nvcommunity.lsp.lspui" },
         { import = "nvcommunity.lsp.lspsaga" },
-
         { import = "nvcommunity.tools.telescope-fzf-native" },
-
-        { import = "nvchad.blink.lazyspec" },
+        -- { import = "nvchad.blink.lazyspec" },
     },
     {
         "uga-rosa/translate.nvim",
         cmd = { "Translate" },
+    },
+    {
+        "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" },
+        config = function()
+            require("luasnip.loaders.from_vscode").load { paths = { "./snippets" } }
+        end,
     },
 }
