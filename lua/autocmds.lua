@@ -14,6 +14,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.highlight.on_yank()
     end,
 })
--- vim.api.nvim_create_autocmd({ "FocusLost", "FocusGained" }, {
---     command = "checktime",
--- })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.ts, *html",
+
+    callback = function()
+        vim.cmd "LspEslintFixAll"
+    end,
+})
