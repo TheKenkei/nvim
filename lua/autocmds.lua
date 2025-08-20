@@ -9,3 +9,11 @@ vim.api.nvim_create_autocmd("BufDelete", {
         end
     end,
 })
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
+-- vim.api.nvim_create_autocmd({ "FocusLost", "FocusGained" }, {
+--     command = "checktime",
+-- })
