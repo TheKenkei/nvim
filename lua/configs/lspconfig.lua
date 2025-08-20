@@ -5,7 +5,7 @@ local angular_cmd = { "ngserver", "--stdio", "--tsProbeLocations", install_path,
 local base_on_attach = vim.lsp.config.eslint.on_attach
 local servers = {
     "html",
-    "vtsls",
+    -- "vtsls",
     "lemminx",
     "bashls",
     "css_variables",
@@ -16,6 +16,8 @@ local servers = {
     "cssls",
     "eslint",
     "angularls",
+    "tsgo",
+    "ts_ls",
 }
 
 require("nvchad.configs.lspconfig").defaults()
