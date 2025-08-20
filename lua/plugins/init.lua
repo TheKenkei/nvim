@@ -1,5 +1,10 @@
 return {
     {
+        "nvim-tree/nvim-tree.lua",
+        dependencies = { "DaikyXendo/nvim-material-icon" },
+    },
+
+    {
         "stevearc/conform.nvim",
         event = "BufWritePre", -- uncomment for format on save
         opts = require "configs.conform",
@@ -13,6 +18,7 @@ return {
 
     {
         "nvim-treesitter/nvim-treesitter",
+        dependencies = { "DaikyXendo/nvim-material-icon" },
         opts = require "configs.treesitter",
     },
     {
