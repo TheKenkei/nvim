@@ -9,6 +9,7 @@ o.clipboard = "unnamedplus"
 o.relativenumber = true
 o.cursorlineopt = "both"
 
+opt.clipboard = "unnamedplus"
 opt.scrolloff = 5
 opt.tabstop = 4
 opt.shiftwidth = 4

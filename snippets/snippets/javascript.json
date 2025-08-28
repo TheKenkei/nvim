@@ -1,4 +1,9 @@
 {
+  "import": {
+    "prefix": "imst",
+    "body": ["import {$2} from \"$1\";$0 "]
+  },
+
   "console.log": {
     "prefix": "/log",
     "body": ["console.log($0)"]
